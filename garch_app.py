@@ -24,9 +24,9 @@ st.title('GARCH Model Simulator')
 
 st.sidebar.header("Model Parameters")
 n = st.sidebar.slider('Number of Observations', min_value=30,max_value=1000,value=252,step=1)
-omega = st.sidebar.slider('Omega', min_value=0.0,max_value=1.0,value=0.1,step=0.1)
-alpha = st.sidebar.slider('Alpha',min_value=0.0,max_value=1.0,value=0.7, step=0.1)
-beta = st.sidebar.slider('Beta',min_value=0.0,max_value=1.0,value=0.1, step=0.1)
+omega = st.sidebar.slider('Omega (average lvl of volatility)', min_value=0.0,max_value=1.0,value=0.1,step=0.1)
+alpha = st.sidebar.slider('Alpha (sensitivity to recent shocks)',min_value=0.0,max_value=1.0,value=0.7, step=0.1)
+beta = st.sidebar.slider('Beta (persistence of volatility)',min_value=0.0,max_value=1.0,value=0.1, step=0.1)
 
 # Simulate ARCH series
 arch_resid, arch_variance = simulate_GARCH(n=n,omega=omega, alpha=alpha)
