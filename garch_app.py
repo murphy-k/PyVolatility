@@ -15,11 +15,6 @@ def simulate_GARCH(n, omega, alpha, beta = 0):
 
     return resid, variance
 
-
-df = pd.read_csv(r'C:\Users\JCA49\PyVolatility\SPX Index.csv',index_col='Date',parse_dates=True)
-df['Return'] = (df['SPX Index'].pct_change()*100)
-df['Realized Variance'] = df['Return']**2
-
 st.title('GARCH Model Simulator')
 
 st.sidebar.header("Model Parameters")
@@ -56,14 +51,3 @@ st.write("""
          ---
          """
          )
-
-st.write("""
-         Actual Realized Variance of the SP500"""
-         )
-
-fig2, ax2 = plt.subplots(figsize=(1.618*8,8))
-ax2.plot(df['Realized Variance'])
-ax2.set_title("Realized Variance of the SP500")
-ax2.set_xlabel('Date')
-ax2.set_ylabel("Realized Variance")
-st.pyplot(fig2)
